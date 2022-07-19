@@ -40,14 +40,19 @@ async function run (){
   const itemCollection = client.db("posZero").collection("items");
 
 
+  app.post('/additem',async(req,res)=>{
+
+    const item = req.body;
+    const result =await itemCollection.insertOne(item)
+    res.send(result)
+
+  })
+
+
 
 }
 
 run().catch(console.log)
-
-
-
-
 
 
 
